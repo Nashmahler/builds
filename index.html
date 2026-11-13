@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nash Mahler — Weekly Builds</title>
+<meta name="description" content="One AI build a week, picked from what AI companies are hiring people to solve.">
+<style>
+  :root {
+    --bg: #fbfaf7; --surface: #ffffff; --ink: #1c1b19; --muted: #6b6760; --line: #e7e3dc;
+    --accent: #2f6f4f; --accent-soft: #e6f0ea; --warn: #8a5a12; --warn-soft: #f6ecd9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141413; --surface: #1d1c1a; --ink: #eeebe5; --muted: #a29d94; --line: #2e2c29;
+      --accent: #7cc39c; --accent-soft: #1f2e26; --warn: #e2b46a; --warn-soft: #33291a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141413; --surface: #1d1c1a; --ink: #eeebe5; --muted: #a29d94; --line: #2e2c29;
+    --accent: #7cc39c; --accent-soft: #1f2e26; --warn: #e2b46a; --warn-soft: #33291a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 56px 16px 80px; }
+  header h1 { font-size: 34px; line-height: 1.15; margin: 0 0 10px; letter-spacing: -0.02em; }
+  header p { color: var(--muted); margin: 0 0 18px; font-size: 17px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .links a {
+    font-size: 14px; color: var(--ink); text-decoration: none; padding: 6px 12px;
+    border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
+  }
+  .links a:hover { border-color: var(--accent); color: var(--accent); }
+  .how { margin: 36px 0 8px; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+  .how h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 8px; }
+  .how ol { margin: 0; padding-left: 20px; }
+  .how li { margin: 2px 0; }
+  h2.section { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 44px 0 14px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 20px; margin-bottom: 16px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px; font-size: 13px; color: var(--muted); }
+  .pill { font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+  .pill.wip { background: var(--warn-soft); color: var(--warn); }
+  .card h3 { font-size: 21px; margin: 0 0 6px; line-height: 1.3; }
+  .card p { margin: 8px 0; }
+  .card ul { margin: 8px 0; padding-left: 20px; }
+  .card li { margin: 3px 0; }
+  .label { font-weight: 600; }
+  .stack { font-size: 14px; color: var(--muted); margin-top: 12px; }
+  .card img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); margin-top: 12px; display: block; }
+  .card a { color: var(--accent); }
+  .caption { font-size: 13px; color: var(--muted); margin-top: 6px; }
+  footer { margin-top: 48px; font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Nash Mahler — Weekly Builds</h1>
+    <p>One AI build a week, picked from what AI companies are hiring people to solve. Self-taught, building before and after my day job.</p>
+    <div class="links">
+      <a href="https://github.com/Nashmahler">GitHub</a>
+      <a href="https://x.com/nash_mahler">X</a>
+      <a href="https://www.linkedin.com/in/nash-mahler">LinkedIn</a>
+    </div>
+  </header>
+
+  <section class="how">
+    <h2>How I pick each build</h2>
+    <ol>
+      <li>An agent I built reads ~4,500 open roles at 20 AI companies, four mornings a week.</li>
+      <li>It surfaces the problems those companies keep hiring people to solve.</li>
+      <li>I pick one I can build in about 6 hours, ship it, and post what worked and what broke.</li>
+    </ol>
+  </section>
+
+  <h2 class="section">Builds</h2>
+
+  <article class="card">
+    <div class="meta"><span class="pill wip">In progress</span><span>Week 2 · Nov 2026</span></div>
+    <h3>Agent Answer Grader</h3>
+    <p>Grades an AI customer-support agent's answers for a fictional credit union. It catches answers that are wrong, made up, non-compliant, or that should have gone to a human.</p>
+    <ul>
+      <li>Claude acts as the judge, and it has to quote the exact policy line behind each verdict. Code checks that the quote is real. Anything unverifiable is flagged for review instead of trusted.</li>
+      <li>I hand-label every case, then measure how often the judge agrees with me, including on a held-out set.</li>
+      <li>The public report is pre-generated, so the demo never spends API credit.</li>
+    </ul>
+    <p class="stack"><span class="label">Why this one:</span> deploying and evaluating customer-facing AI agents was a top trend in AI hiring this week.</p>
+  </article>
+
+  <article class="card">
+    <div class="meta"><span class="pill">Shipped</span><span>Week 1 · Nov 2026</span></div>
+    <h3>Build Radar — an agent that tells me what to build next</h3>
+    <p>Four mornings a week it pulls every open role from 20 AI companies' public job boards, filters to roles that ask for AI, agents, or automation, and sends me a message with the problems companies keep hiring for, plus one build idea.</p>
+    <ul>
+      <li>Reads ~4,500 postings per run across Ashby, Greenhouse, and Lever.</li>
+      <li>Claude groups the recurring problems. Code computes the posting counts, so they never come from the model's say-so.</li>
+      <li>Claude calls are hard-capped per run and enforced in code, so a run costs pennies.</li>
+      <li>Runs on GitHub Actions on a schedule and delivers to my phone. 145 automated tests.</li>
+      <li>Built in one afternoon with Claude Code.</li>
+    </ul>
+    <img src="assets/build-radar.jpg" alt="A Build Radar message listing trending problems in AI hiring and a suggested build idea" loading="lazy">
+    <p class="caption">A real Build Radar message. Its suggestion became Week 2's build.</p>
+    <p class="stack"><span class="label">Stack:</span> Python · Claude API · GitHub Actions · Telegram Bot API · pytest. Code is private.</p>
+  </article>
+
+  <h2 class="section">Before the weekly series</h2>
+
+  <article class="card">
+    <div class="meta"><span class="pill">Shipped</span><span>2026</span></div>
+    <h3>AI Market Intelligence Agent</h3>
+    <p>Built in one week: a daily agent that collected ~500 articles, ranked them with Claude for a specific company, and published an executive brief. It verified every claim against its source in code and published nothing rather than something unsupported.</p>
+    <ul>
+      <li>Measured ranking against hand-labeled data and raised agreement from 75% to 90%, holding on a held-out set.</li>
+      <li>309 automated tests. Ran daily on GitHub Actions; now paused to save API cost.</li>
+    </ul>
+    <p><a href="https://github.com/Nashmahler/ai-infra-intel-brief">View the repo →</a></p>
+  </article>
+
+  <article class="card">
+    <div class="meta"><span class="pill">Private</span><span>2026</span></div>
+    <h3>AI financial platform for CPA firms</h3>
+    <p>Four months of building before and after work: QuickBooks Online integration, source-traced answers, role-based access, and audit logging, verified by more than 1,100 automated tests and mutation testing. The biggest lesson was to validate demand before building.</p>
+  </article>
+
+  <footer>Updated weekly · Built with Claude Code</footer>
+</main>
+</body>
+</html>
