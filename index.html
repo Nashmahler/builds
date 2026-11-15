@@ -85,6 +85,22 @@
   <h2 class="section">Builds</h2>
 
   <article class="card">
+    <div class="meta"><span class="pill">Shipped</span><span>Week 2 bonus · Nov 2026</span></div>
+    <h3>Account Research Agent</h3>
+    <p>Type in a company. It reads recent news, the company's own site, and its public job board, then tells a sales rep what changed there and drafts two or three first lines they could actually send.</p>
+    <ul>
+      <li>Every claim cites a numbered source and quotes it word for word. Code checks the quote and every figure in the sentence. Anything that doesn't match is dropped, and the brief says why.</li>
+      <li>If nothing verifies, it says "No verified brief" instead of guessing. A made-up fact in a cold email is worse than no email.</li>
+      <li>Hiring counts by team are computed in code. One Claude call per company, so a brief costs pennies.</li>
+      <li>Run it from a button on GitHub. Example briefs for Notion, Linear, and Vercel are in the repo. 25 automated tests, including fabricated quotes and a prompt-injection page.</li>
+      <li>Built in a day with Claude Code.</li>
+    </ul>
+    <p class="stack"><span class="label">Why this one:</span> sales teams are hiring people to build AI tools for their reps, and account research is the first hour of every rep's day.</p>
+    <p class="stack"><span class="label">Stack:</span> Python · Claude API · GitHub Actions · pytest.</p>
+    <p><a href="https://github.com/Nashmahler/account-research-agent">View the repo and example briefs →</a></p>
+  </article>
+
+  <article class="card">
     <div class="meta"><span class="pill wip">In progress</span><span>Week 2 · Nov 2026</span></div>
     <h3>Agent Answer Grader</h3>
     <p>Grades an AI customer-support agent's answers for a fictional credit union. It catches answers that are wrong, made up, non-compliant, or that should have gone to a human.</p>
@@ -99,12 +115,12 @@
   <article class="card">
     <div class="meta"><span class="pill">Shipped</span><span>Week 1 · Nov 2026</span></div>
     <h3>Build Radar — an agent that tells me what to build next</h3>
-    <p>Four mornings a week it pulls every open role from 20 AI companies' public job boards, filters to roles that ask for AI, agents, or automation, and sends me a message with the problems companies keep hiring for, plus one build idea.</p>
+    <p>Four mornings a week it pulls every open role from 200+ companies' public job boards, filters to roles that ask for AI, agents, or automation, and sends me a message with the problems companies keep hiring for, plus one build idea.</p>
     <ul>
-      <li>Reads ~4,500 postings per run across Ashby, Greenhouse, and Lever.</li>
+      <li>Started at ~4,500 postings from 20 companies; now reads ~28,000 per run from 200+ companies across Ashby, Greenhouse, and Lever.</li>
       <li>Claude groups the recurring problems. Code computes the posting counts, so they never come from the model's say-so.</li>
       <li>Claude calls are hard-capped per run and enforced in code, so a run costs pennies.</li>
-      <li>Runs on GitHub Actions on a schedule and delivers to my phone. 145 automated tests.</li>
+      <li>Runs on GitHub Actions on a schedule and delivers to my phone. 160 automated tests.</li>
       <li>Built in one afternoon with Claude Code.</li>
     </ul>
     <img src="assets/build-radar.jpg" alt="A Build Radar message listing trending problems in AI hiring and a suggested build idea" loading="lazy">
