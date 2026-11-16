@@ -101,15 +101,18 @@
   </article>
 
   <article class="card">
-    <div class="meta"><span class="pill wip">In progress</span><span>Week 2 · Nov 2026</span></div>
+    <div class="meta"><span class="pill">Shipped</span><span>Week 2 · Nov 2026</span></div>
     <h3>Agent Answer Grader</h3>
-    <p>Grades an AI customer-support agent's answers for a fictional credit union. It catches answers that are wrong, made up, non-compliant, or that should have gone to a human.</p>
+    <p>Grades an AI customer-support agent's answers for a fictional credit union, then grades the grader. It catches answers that are wrong, made up, non-compliant, or that should have gone to a human.</p>
     <ul>
-      <li>Claude acts as the judge, and it has to quote the exact policy line behind each verdict. Code checks that the quote is real. Anything unverifiable is flagged for review instead of trusted.</li>
-      <li>I hand-label every case, then measure how often the judge agrees with me, including on a held-out set.</li>
-      <li>The public report is pre-generated, so the demo never spends API credit.</li>
+      <li>Claude acts as the judge and has to quote the exact policy line behind each verdict. Code checks that the quote is real; anything unverifiable becomes "needs review" instead of being trusted.</li>
+      <li>I hand-labeled all 30 cases, then measured the judge against my labels, with 10 cases held out from tuning.</li>
+      <li>Pass/fail was easy: 18 of 18 bad answers caught, no false alarms. Naming the problem was hard: the first rubric got it exactly right on 8 of 18. One rubric change took it to 17 of 18, and 6 of 6 on the held-out cases.</li>
+      <li>Hard cap of 40 Claude calls per run, with results cached, so re-running is nearly free. 20 automated tests.</li>
     </ul>
     <p class="stack"><span class="label">Why this one:</span> deploying and evaluating customer-facing AI agents was a top trend in AI hiring this week.</p>
+    <p class="stack"><span class="label">Stack:</span> Python · Claude API · GitHub Actions · GitHub Pages · pytest.</p>
+    <p><a href="https://nashmahler.github.io/agent-answer-grader/">See the results →</a> · <a href="https://github.com/Nashmahler/agent-answer-grader">Code →</a></p>
   </article>
 
   <article class="card">
